@@ -21,7 +21,7 @@ void printStar(char c);
 void printSpace(char c);
 
 int main(){
-    char str[]  = "N*C A*A"; // string here
+    char str[]  = "N*C A*A!"; // string here
 
     int strLength = sizeof(str) / sizeof(str[0]);
     // string length = mem size of string / mem size of one char
@@ -38,16 +38,21 @@ int main(){
             // next line, will increment i at loop header
         }else if(j == 42){
             // 42 == ASCII for "*"
-            printStar(str[i++]);
+            printStar(str[i+1]);
             // use next letter for print instructions,
             i++;
             // increment i each time
         }else if(j == 32){
             // 32 == ASCII for " "
-            printSpace(str[i++]);
+            printSpace(str[i+1]);
+
             i++;
+        }else if(j == 33){
+            // 33 == ASCII for "!"
+            printf("\n"); // end of picture
+            break;
         }else{
-            printf("\n Faulty code at position: %d", i);
+            printf("\nFaulty code at position: %d", i);
             break;
         }
 
@@ -71,6 +76,8 @@ void printSpace(char c){
         n--;
     }
 }
+
+
 
 
 
