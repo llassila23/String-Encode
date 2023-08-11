@@ -6,7 +6,7 @@
 /* each char in the string will represent a number, The number will determine what action is completed
     To draw the picture we need to know:
     1. start a new line?
-    2. What char to print?
+    2. What character to print?
     3. how many of said char to print?
 The main body of the program could be handled by a for each loop with if else statements to call printing
 
@@ -15,29 +15,64 @@ Once completed: it could be done in reverse; enter lines and convert them to a s
 
 #include <stdio.h>
 
-int main{
-    char str[]  = ""; // string here
+// function declaration
+
+void printStar(char c);
+void printSpace(char c);
+
+int main(){
+    char str[]  = "N*C A*A"; // string here
 
     int strLength = sizeof(str) / sizeof(str[0]);
     // string length = mem size of string / mem size of one char
 
-    for(int i = 0; i < stringLength; i++){
+    // i increments through string, j is "number code"
+
+    for(int i = 0; i < strLength; i++){
 
         int j = str[i] - 0; //
 
-        if(j == /n){
-            // next line
-        }else if(j == num for star){
-            // print star for val of j++
-            // j++
-        }else if(j == num for space){
-            // print space for val of j++
-            // j++
+        if(j == 78){
+            printf("\n");
+            // 78 = ASCII for "N"
+            // next line, will increment i at loop header
+        }else if(j == 42){
+            // 42 == ASCII for "*"
+            printStar(str[i++]);
+            // use next letter for print instructions,
+            i++;
+            // increment i each time
+        }else if(j == 32){
+            // 32 == ASCII for " "
+            printSpace(str[i++]);
+            i++;
         }else{
-            printf("\n Faulty code at position: ", j);
-            break; 
+            printf("\n Faulty code at position: %d", i);
+            break;
         }
 
     }
-};
+} // end main
+
+void printStar(char c){
+    int n = c-64;
+    //c will be a letter, ASCII alphabet starts at 65
+    // ex: n = (A - 64) == 1
+    while(n > 0){
+        printf("*");
+        n--;
+    }
+}
+
+void printSpace(char c){
+    int n = c-64;
+    while(n > 0){
+        printf(" ");
+        n--;
+    }
+}
+
+
+
+
 
