@@ -21,7 +21,8 @@ void printStar(char c);
 void printSpace(char c);
 
 int main(){
-    char str[]  = "N*C A*A!"; // string here
+    // 50x30 resolution
+    char str[]  = "n H*Un G*Vn E*A C*Tn E*B B*Tn F*C A*Sn F*Wn G*Vn I*E On!"; // string here
 
     int strLength = sizeof(str) / sizeof(str[0]);
     // string length = mem size of string / mem size of one char
@@ -32,7 +33,7 @@ int main(){
 
         int j = str[i] - 0; //
 
-        if(j == 78){
+        if(j == 110){
             printf("\n");
             // 78 = ASCII for "N"
             // next line, will increment i at loop header
